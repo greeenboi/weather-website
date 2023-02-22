@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/weather.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.1.1/dist/tailwind.min.css">  
+  </head>
+  <body>
+    <img src="/weather.svg" class="logo" alt="Weather App" />    
+    <div class="container mx-auto my-8">
+      <h1 class="text-3xl font-bold mb-4">Weather Data</h1>
+      <form class="flex flex-col md:flex-row md:items-center">
+        <label for="city" class="mr-4 mb-4 md:mb-0">Enter city name:</label>
+        <div class="flex-1">
+          <input type="text" id="city" name="city" class="w-full rounded border-gray-400 border-2 p-2">
+        </div>
+        <button type="submit" class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get Weather</button>
+      </form>
+      <p class="my-4">Location: <span id="location"></span></p>
+      <p class="my-4">Time: <span id="time"></span></p>
+      <p class="my-4">Temperature: <span id="temperature"></span> &deg;C</p>
+      <p class="my-4">Humidity: <span id="humidity"></span> %</p>
+      <p class="my-4">Description: <span id="description"></span></p>
+    </div>
+    
+    <a id="source-link" class="meta-link" href="https://github.com/greeenboi" target="_blank">
+      <img src="/github.svg" class="icon" alt="My Github">
+      <span>Github</span>
+    </a>
+
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
