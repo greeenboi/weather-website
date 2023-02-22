@@ -27,11 +27,46 @@ body {
   margin: 0;  
   min-width: 320px;
   min-height: 100vh;
+  background-color: #374151;
+  color: #E5E7EB;
+  overflow: hidden;
+}
+
+
+.bg-white {
+background-color: #1F2937;
+}
+
+.text-gray-700 {
+color: #D1D5DB;
+}
+
+.border-gray-400 {
+border-color: #9CA3AF;
+}
+
+.focus\:ring-blue-500:focus {
+box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+}
+
+.bg-blue-500 {
+background-color: #2563EB;
+}
+
+.bg-blue-700:hover {
+background-color: #1D4ED8;
+}
+
+.text-blue-500 {
+color: #60A5FA;
 }
 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  text-shadow: #646cff;
+  box-shadow: #1a1a1a;
+  
 }
 
 #app {
