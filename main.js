@@ -1,6 +1,6 @@
 import './style.css'
 
-const apikey = "39f9436e4d81c8e85a0bc392a13deb51";
+const APIKEY = "39f9436e4d81c8e85a0bc392a13deb51";
 const form = document.querySelector("form");
       const locationEl = document.getElementById("location");
       const timeEl = document.getElementById("time");
@@ -11,7 +11,7 @@ const form = document.querySelector("form");
       form.addEventListener("submit", e => {
         e.preventDefault();
         const city = document.getElementById("city").value;
-        const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`;
+        const endpoint = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}`;
 
         fetch(endpoint)
           .then(response => response.json())
