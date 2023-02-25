@@ -7,6 +7,10 @@
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  --purple: rgb(123, 31, 162);
+  --violet: rgb(103, 58, 183);
+  --pink: rgba(100,108,255,0.2);
+
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -66,11 +70,87 @@ box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-  text-shadow: #646cff;
-  box-shadow: #1a1a1a;
+  color: white;
+  font-family: "Rubik", sans-serif;
+  font-size: clamp(2em, 2vw, 4em);
+  font-weight: 400;
+  margin: 0px;
+  padding: 20px;
+  text-align: center;
+}
+
+h1 > .magic {
+  display: inline-block;
+  position: relative;
+}
+
+h1 > .magic > .magic-cloud {
+  --size: clamp(20px, 1.5vw, 30px);
   
+  animation: scale 700ms ease forwards;
+  display: block;
+  height: var(--size);
+  left: var(--cloud-left);
+  position: absolute;
+  top: var(--cloud-top);
+  width: var(--size);
+}
+
+h1 > .magic > .magic-cloud > svg {
+  animation: rotate 1000ms linear infinite;
+  display: block;
+  opacity: 0.7;
+}
+
+h1 > .magic > .magic-cloud > svg > path {
+  fill: var(--violet);
+}
+
+h1 > .magic > .magic-text {
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--purple),
+    var(--violet),
+    var(--pink),
+    var(--purple),
+    var(--pink),
+    var(--violet)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes scale {
+  from, to {
+    transform: scale(0);
+  }
+  
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(180deg);
+  }
 }
 
 #app {
@@ -106,9 +186,6 @@ h1 {
   padding: 2em;
 }
 
-.read-the-docs {
-  color: #888;
-}
 
 body.menu-toggled > .meta-link > span {
   color: rgb(30, 30, 30);
@@ -159,4 +236,45 @@ body.menu-toggled > .meta-link > span {
   color: white;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
+}
+
+#bubble-wrapper {
+  height: 100%;
+  width: 100%;
+  
+  position: absolute;
+  bottom: 0px;
+  
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bubble {
+  height: max(300px, 30vw);
+  width: max(300px, 30vw);
+  
+  background-color: rgba(100,108,255,0.2); 
+  border-radius: 100%;
+  
+  position:fixed;
+  left: 200%;
+  top: 100%;
+  
+  animation: wave 4s ease-in-out;
+}
+
+@media(prefers-reduced-motion) {
+  .bubble {
+    animation: none;
+    display: none;
+  }
+}
+@keyframes wave {
+  from, to {
+    transform: translate(-40%, 0%);
+  }
+  
+  50% {
+    transform: translate(-40%, -10%);
+  }
 }

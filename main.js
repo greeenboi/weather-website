@@ -38,3 +38,42 @@ const form = document.querySelector("form");
           })
           .catch(error => console.error(error));
       });
+
+const wrapper = document.getElementById("bubble-wrapper");
+
+const animateBubble = x => {  
+  const bubble = document.createElement("div");
+  
+  bubble.className = "bubble";
+  bubble.style.left = `${x}px`;
+  
+  wrapper.appendChild(bubble);
+  
+  setTimeout(() => wrapper.removeChild(bubble), 2000);
+}
+
+window.onmousemove = e => animateBubble(e.clientX);
+
+
+let index = 0,
+    interval = 1000;
+
+const rand = (min, max) => 
+  Math.floor(Math.random() * (max - min + 1)) + min;
+
+const animate = cloud => {
+  cloud.style.setProperty("--cloud-left", `${rand(-10, 100)}%`);
+  cloud.style.setProperty("--cloud-top", `${rand(-40, 80)}%`);
+
+  cloud.style.animation = "none";
+  cloud.offsetHeight;
+  cloud.style.animation = "";
+}
+
+for(const cloud of document.getElementsByClassName("magic-cloud")) {
+  setTimeout(() => {
+    animate(cloud);
+    
+    setInterval(() => animate(cloud), 1000);
+  }, index++ * (interval / 3))
+}
