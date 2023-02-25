@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.1.1/dist/tailwind.min.css">  
   </head>   
   <body>
-    <div class="container mx-auto my-8 px-4"><img src="/weather.svg" class="logo" alt="Weather App" />
+    <div class="container mx-auto my-8 px-4">
+      <img src="/weather.svg" class="logo" alt="Weather App" />      
       <h1 class="text-3xl font-bold mb-4 text-center">Weather Data</h1>
       <form class="flex flex-col md:flex-row md:items-center bg-white p-8 rounded shadow-lg">
         <label for="city" class="mr-4 mb-4 md:mb-0 font-bold text-gray-700">Enter city name:</label>
         <div class="flex-1">
           <input type="text" id="city" name="city" class="w-full rounded border-gray-400 border-2 p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
         </div>
-        <button type="submit" class="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Get Weather</button>
+        <button type="submit" class="meta-link">Get Weather</button>
       </form>
       <div class="bg-white rounded shadow-lg p-8 mt-8">
         <p class="my-4 font-bold text-gray-700">Weather for <span id="location"></span></p>
