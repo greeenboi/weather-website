@@ -7,6 +7,8 @@ const form = document.querySelector("form");
       const tempEl = document.getElementById("temperature");
       const humEl = document.getElementById("humidity");
       const descEl = document.getElementById("description");
+      const cloudEl =document.getElementById("cloudiness");
+      const precEl =document.getElementById("precipitation");
 
       form.addEventListener("submit", e => {
         e.preventDefault();
@@ -16,19 +18,23 @@ const form = document.querySelector("form");
         fetch(endpoint)
           .then(response => response.json())
           .then(data => {
-            // extract data from the response
+            console.log(data);
             const location = data.name;
             const time = new Date(data.dt * 1000).toLocaleTimeString();
             const temperature = Math.round(data.main.temp - 273.15);
             const humidity = data.main.humidity;
             const description = data.weather[0].description;
+            const cloudiness = data.clouds.all;
+            const precipitation = data.rain?.['1h'] || data.snow?.['1h'] || 0;
 
-            // update the text content of the HTML elements
+            
             locationEl.textContent = location;
             timeEl.textContent = time;
             tempEl.textContent = temperature;
             humEl.textContent = humidity;
             descEl.textContent = description;
+            cloudEl.textContent = cloudiness;
+            precEl.textContent = precipitation;
           })
           .catch(error => console.error(error));
       });
